@@ -67,9 +67,18 @@ No hay intersecciones entre reglas de un mismo no terminal.
 
 ---
 
-## Conclusion
+## La gramatica SI es LL1.
 
-La gramatica SI es LL(1).
+Porque:
+
+- Se elimino la recursividad por la izquierda en B.
+- Los conjuntos FIRST de las producciones de un mismo no terminal no se intersectan.
+- Cuando hay epsilon, los FOLLOW no generan conflictos.
+- El parser puede decidir que produccion usar con un solo token.
+
+## Conclusion:
+
+La gramatica es LL1 porque no hay ambiguedad en la seleccion de producciones.
 
 ---
 
@@ -108,9 +117,18 @@ Existen intersecciones en los conjuntos de prediccion.
 
 ---
 
-## Conclusion
+## La gramatica NO es LL1.
 
-La gramatica NO es LL(1) debido a conflictos en prediccion.
+Porque:
+
+- Los conjuntos FIRST de varios no terminales son iguales o se intersectan.
+- Existen muchas producciones con epsilon.
+- Los conjuntos FOLLOW se cruzan con FIRST generando conflictos.
+- No se puede decidir que produccion usar con un solo token.
+
+## Conclusion:
+
+La gramatica no es LL1 porque hay ambiguedad en la seleccion de producciones.
 
 ---
 
@@ -156,11 +174,18 @@ No hay conflictos entre reglas.
 
 ---
 
-## Conclusion
+La gramatica SI es LL1.
 
-La gramatica SI es LL(1).
+Porque:
 
----
+- Se elimino la recursividad por la izquierda en S.
+- Los conjuntos de prediccion no se intersectan.
+- El manejo de epsilon no genera conflictos.
+- Cada decision se puede tomar con un solo token.
+
+## Conclusion:
+
+La gramatica es LL1 porque no presenta conflictos en la prediccion.
 
 # Resumen de ejercicios
 
