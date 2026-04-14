@@ -1,16 +1,21 @@
 tokens = []
 pos = 0
 
+def actual():
+    if pos < len(tokens):
+        return tokens[pos]
+    return None
+
 def match(t):
     global pos
-    if pos < len(tokens) and tokens[pos] == t:
+    if actual() == t:
         pos += 1
     else:
         print("error")
         exit()
 
 def S():
-    if tokens[pos] in ["dos", "cuatro", "seis"]:
+    if actual() in ["dos", "cuatro", "seis"]:
         A()
         B()
         C()
@@ -19,38 +24,30 @@ def S():
         E()
 
 def A():
-    if tokens[pos] == "dos":
+    if actual() == "dos":
         match("dos")
         B()
         match("tres")
-    else:
-        pass
 
 def B():
-    if tokens[pos] == "cuatro":
+    if actual() == "cuatro":
         Bp()
-    else:
-        pass
 
 def Bp():
-    if pos < len(tokens) and tokens[pos] == "cuatro":
+    if actual() == "cuatro":
         match("cuatro")
         C()
         match("cinco")
         Bp()
-    else:
-        pass
 
 def C():
-    if tokens[pos] == "seis":
+    if actual() == "seis":
         match("seis")
         A()
         B()
-    else:
-        pass
 
 def D():
-    if tokens[pos] == "uno":
+    if actual() == "uno":
         match("uno")
         A()
         E()
@@ -58,10 +55,14 @@ def D():
         B()
 
 def E():
-    match("tres")
+    if actual() == "tres":
+        match("tres")
+    else:
+        print("error")
+        exit()
 
 
-# prueba
+# MAIN (esto SI es necesario)
 tokens = input("ingrese tokens: ").split()
 S()
 
