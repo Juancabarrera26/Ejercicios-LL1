@@ -61,8 +61,6 @@ def E():
         print("error")
         exit()
 
-
-# MAIN (esto SI es necesario)
 tokens = input("ingrese tokens: ").split()
 S()
 
